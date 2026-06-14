@@ -1,0 +1,53 @@
+{
+  "name": "ip-api-io",
+  "version": "1.0.0",
+  "description": "Official JavaScript/TypeScript client for ip-api.io — IP geolocation, email validation, fraud detection and risk scoring API",
+  "keywords": [
+    "ip geolocation",
+    "ip api",
+    "geoip",
+    "email validation",
+    "fraud detection",
+    "risk score",
+    "vpn detection",
+    "tor detection",
+    "whois",
+    "asn lookup"
+  ],
+  "homepage": "https://ip-api.io",
+  "bugs": "https://github.com/ip-api-io/ipapi-js/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ip-api-io/ipapi-js.git"
+  },
+  "license": "MIT",
+  "author": "ip-api.io",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
+  }
+}
